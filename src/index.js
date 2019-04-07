@@ -6,14 +6,17 @@ const Footer = () => {
   return <footer>&copy; 2018</footer>;
 };
 
+const data = {
+  age: 26
+};
+
 function App() {
   return (
     <div id="App">
       <Header />
-      <Person />
-      <Person />
-      <Person />
-      <Person />
+      <Person mydata={data} name="Ulla" />
+      <Person mydata={data} name="Liv" />
+      <Person mydata={data} name="Ask" />
       <Footer />
     </div>
   );
@@ -27,12 +30,22 @@ function Header() {
   );
 }
 
-function Person() {
+function Person(props) {
+  console.log(props.name);
   return (
     <article>
-      <h1>Jonas</h1>
-      <p>Hi mom!</p>
+      <h1>{props.name}</h1>
+      <p>Hi mom! I'm {props.mydata.age} years old</p>
+      <Skilles skilles={props.mydata.skilles} />
     </article>
+  );
+}
+
+function Skilles(props) {
+  return (
+    <ul>
+      <li>Skilles here:</li>
+    </ul>
   );
 }
 
