@@ -7,28 +7,26 @@ function App() {
     {
       name: "Erik",
       hobbies: ["Guitar", "beer"],
-      email: "erik-crg@hotmail.com"
+      email: "erik-crg@hotmail.com",
+      kids: 0,
+      bike: "A heavy one"
     },
     {
       name: "Svend-åge",
       hobbies: ["Se den store strikkedyst", "klippe tånegle"],
-      email: "ingen"
+      email: "ingen",
+      kids: 17
     },
     {
       name: "Somebicth",
       hobbies: ["Whine", "bruge penge"],
-      email: "Somebicth@thatsright.com"
+      email: "Somebicth@thatsright.com",
+      kids: 2.5
     }
   ];
 
   const testpesoner = data.map(testperson => {
-    return (
-      <Testperson
-        name={testperson.name}
-        email={testperson.email}
-        hobbies={testperson.hobbies}
-      />
-    );
+    return <Testperson {...testperson} />;
   });
 
   return (
@@ -46,6 +44,8 @@ function Testperson(props) {
       <header>
         <h1>{props.name}</h1>
         <p>{props.email}</p>
+        <p>{props.kids}</p>
+        <p>{props.bike}</p>
       </header>
       <h2>Hobbies</h2>
     </article>
