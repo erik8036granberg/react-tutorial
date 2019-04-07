@@ -8,6 +8,7 @@ export default function Testperson(props) {
         <p>{props.email}</p>
         <p>{props.kids}</p>
         <p>{props.bike}</p>
+        <p>{props.id}</p>
       </header>
       <h2>Hobbies</h2>
     </article>
