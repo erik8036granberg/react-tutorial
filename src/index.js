@@ -2,50 +2,53 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-const Footer = () => {
-  return <footer>&copy; 2018</footer>;
-};
-
-const data = {
-  age: 26
-};
-
 function App() {
+  const data = [
+    {
+      name: "Erik",
+      hobbies: ["Guitar", "beer"],
+      email: "erik-crg@hotmail.com"
+    },
+    {
+      name: "Svend-åge",
+      hobbies: ["Se den store strikkedyst", "klippe tånegle"],
+      email: "ingen"
+    },
+    {
+      name: "Somebicth",
+      hobbies: ["Whine", "bruge penge"],
+      email: "Somebicth@thatsright.com"
+    }
+  ];
+
+  const testpesoner = data.map(testperson => {
+    return (
+      <Testperson
+        name={testperson.name}
+        email={testperson.email}
+        hobbies={testperson.hobbies}
+      />
+    );
+  });
+
   return (
     <div id="App">
-      <Header />
-      <Person mydata={data} name="Ulla" />
-      <Person mydata={data} name="Liv" />
-      <Person mydata={data} name="Ask" />
-      <Footer />
+      <header>Header</header>
+      {testpesoner}
+      <footer>Footer</footer>
     </div>
   );
 }
 
-function Header() {
-  return (
-    <header>
-      <h1>This is React!</h1>
-    </header>
-  );
-}
-
-function Person(props) {
-  console.log(props.name);
+function Testperson(props) {
   return (
     <article>
-      <h1>{props.name}</h1>
-      <p>Hi mom! I'm {props.mydata.age} years old</p>
-      <Skilles skilles={props.mydata.skilles} />
+      <header>
+        <h1>{props.name}</h1>
+        <p>{props.email}</p>
+      </header>
+      <h2>Hobbies</h2>
     </article>
-  );
-}
-
-function Skilles(props) {
-  return (
-    <ul>
-      <li>Skilles here:</li>
-    </ul>
   );
 }
 
